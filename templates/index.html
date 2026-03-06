@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Premium Audio Player</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.4/lottie.min.js"></script>
+</head>
+<body>
+  <video autoplay muted loop id="bgVideo">
+    <source src="{{ url_for('static', filename='background.mp4') }}" type="video/mp4">
+  </video>
+
+
+  <div class="container">
+    <!-- Left: Music Player -->
+    <div class="player">
+      <div class="animation" id="mainAnim"></div>
+      <div class="track-info" id="currentTrack">No track playing</div>
+      <div class="controls">
+        <button class="btn prev">⏮</button>
+        <button class="btn play">▶</button>
+        <button class="btn next">⏭</button>
+      </div>
+      <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+    </div>
+
+    <!-- Right: Track List -->
+    <div class="sidebar">
+      <div class="track-list" id="track-list"></div>
+      <div class="upload-section">
+        <button id="uploadBtn" class="upload-btn">Upload</button>
+        <input type="file" id="fileInput" name="file" multiple accept=".mp3,.wav,.ogg,.flac,.opus" hidden>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
